@@ -1,0 +1,38 @@
+<div class="wrapper__content">
+  <div class="orders__header">
+    <h1>Orders</h1>
+  </div>
+  <div class="content">
+    <ng-container *ngIf="isProducer">
+      <mat-form-field *ngIf="customers">
+        <mat-label>Filter by customer</mat-label>
+        <mat-select [(ngModel)]="filterValue" (selectionChange)="onCustomerChange()">
+          <mat-option>None</mat-option>
+          <mat-option *ngFor="let customer of customers" [value]="customer?.name">{{customer.name}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </ng-container>
+    <app-ic-custom-table [dataProvider]="orders" [columnsDef]="isProducer ?
+     columnsDef : columnsDefForCustomer()"
+                         [selectable]="true" [(selection)]="selectedItem">
+      <ng-template rTemplate="status" let-element>
+        <app-status [status]="element.status"></app-status>
+      </ng-template>
+      <ng-template rTemplate="unit" let-element>
+        <app-unit-bar [unit]="element.unit"></app-unit-bar>
+      </ng-template>
+      <ng-template rTemplate="date" let-element>
+        <span>{{element.creationDate | date: 'dd-MM-yyyy'}}</span>
+      </ng-template>
+    </app-ic-custom-table>
+  </div>
+  <div class="button__bar">
+    <div class="button__bar-center">
+      <button mat-raised-button (click)="onDuplicateOrder(isProducer)" color="primary" [disabled]="!selectedItem">
+        Duplicate order
+      </button>
+      <button type="button" mat-raised-button color="primary" (click)="onCreateOrder(isProducer)">Create new order
+      </button>
+    </div>
+  </div>
+</div>

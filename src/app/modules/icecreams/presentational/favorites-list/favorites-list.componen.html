@@ -1,0 +1,23 @@
+<div class="wrapper__content">
+  <div class="favorites__header">
+    <h1>List of your favorite flavours</h1>
+    <div class="flex">
+      <p>Assigned unit:</p>
+      <strong>
+        <app-unit-bar [unit]="unit"></app-unit-bar>
+      </strong>
+    </div>
+  </div>
+  <div class="content">
+    <app-ic-custom-table [selectable]="true" [columnsDef]="columns" [dataProvider]="favorites"
+                         [(selection)]="selectedItem"></app-ic-custom-table>
+  </div>
+  <div class="button__bar">
+    <div class="button__bar-center">
+      <button mat-raised-button (click)="onOrder(selectedItem, unit)" color="primary" [disabled]="!selectedItem">
+        Duplicate favorite order
+      </button>
+      <button mat-raised-button color="primary" (click)="onShowSlectForm(favorites)">Select</button>
+    </div>
+  </div>
+</div>

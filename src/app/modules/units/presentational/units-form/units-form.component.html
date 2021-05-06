@@ -1,0 +1,17 @@
+<form class="form" [formGroup]="form" (ngSubmit)="onSubmit(form.value, form.valid)">
+  <h1>Add new unit</h1>
+  <mat-form-field class="full-width">
+    <mat-label id="lblName">Name</mat-label>
+    <input label="lblName" type="name" matInput [required]="true" formControlName="name">
+    <mat-error matErrorMessages></mat-error>
+  </mat-form-field>
+  <mat-form-field class="full-width">
+    <mat-label id="lblWeight">Weight</mat-label>
+    <input label="lblWeight" type="text" matInput [required]="true" formControlName="weight" placeholder="E.g 500g, 1kg...">
+    <mat-error matErrorMessages></mat-error>
+  </mat-form-field>
+  <div class="button__bar">
+    <button mat-raised-button (click)="onClose()">Close</button>
+    <button mat-raised-button color="primary" type="submit">Add</button>
+  </div>
+</form>

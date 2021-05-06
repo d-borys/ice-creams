@@ -1,0 +1,32 @@
+<form class="form customer-form" [formGroup]="form" (ngSubmit)="onSubmit(form.value, form.valid)">
+  <h1>Add new customer</h1>
+  <div class="content">
+    <mat-form-field class="full-width">
+      <mat-label id="lblEmail">E-mail</mat-label>
+      <input label="lblEmail" type="email" matInput [required]="true" formControlName="email">
+      <mat-error matErrorMessages></mat-error>
+    </mat-form-field>
+    <mat-form-field class="full-width">
+      <mat-label id="lblName">Name</mat-label>
+      <input label="lblName" type="text" matInput [required]="true" formControlName="name">
+      <mat-error matErrorMessages></mat-error>
+    </mat-form-field>
+    <mat-form-field class="full-width">
+      <mat-label id="lblPhone">Phone</mat-label>
+      <input label="lblPhone" type="text" matInput formControlName="phone">
+      <mat-error matErrorMessages></mat-error>
+    </mat-form-field>
+    <mat-form-field class="full-width">
+      <mat-label id="lblAddress">Address</mat-label>
+      <input label="lblAddress" type="text" matInput formControlName="address">
+      <mat-error matErrorMessages></mat-error>
+    </mat-form-field>
+
+  </div>
+  <div class="button__bar">
+    <div class="button__bar-center">
+      <button mat-raised-button (click)="onClose()">Close</button>
+      <button mat-raised-button color="primary" type="submit">Add</button>
+    </div>
+  </div>
+</form>

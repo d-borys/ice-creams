@@ -1,0 +1,43 @@
+<nav class="navigation" *ngLet="(isProducer$ | async) as isProducer">
+  <div class="navigation__header">
+    <span class="navigation__title">Gelat.io</span>
+    <img class="navigation__logo" src="assets/icecreamlogo.jpg"/>
+  </div>
+  <mat-divider></mat-divider>
+  <ul class="navigation__list">
+    <li class="navigation__el">
+      <a class="navigation__link" mat-flat-button routerLink="/icecreams/orders" routerLinkActive="active-link">
+        <mat-icon aria-hidden="false" class="navigation__icon" aria-label="Example home icon">groups</mat-icon>
+        <span class="navigation__desc">Orders</span>
+      </a>
+    </li>
+    <li class="navigation__el" *ngIf="!isProducer">
+      <a class="navigation__link" mat-flat-button routerLink="/icecreams/favorites" routerLinkActive="active-link">
+        <mat-icon aria-hidden="false" class="navigation__icon" aria-label="Example home icon">star</mat-icon>
+        <span class="navigation__desc">Favorites</span>
+      </a>
+    </li>
+    <li class="navigation__el" *ngIf="isProducer">
+      <a class="navigation__link" mat-flat-button routerLink="/customers/list" routerLinkActive="active-link">
+        <mat-icon aria-hidden="false" class="navigation__icon" aria-label="Example home icon">groups</mat-icon>
+        <span class="navigation__desc">Customers</span>
+      </a>
+    </li>
+    <li class="navigation__el" *ngIf="isProducer">
+      <a class="navigation__link" mat-flat-button routerLink="/icecreams/list" routerLinkActive="active-link">
+        <mat-icon aria-hidden="false" class="navigation__icon" aria-label="Example home icon">list</mat-icon>
+        <span class="navigation__desc">Ice cream list</span>
+      </a>
+    </li>
+    <li class="navigation__el" *ngIf="isProducer">
+      <a class="navigation__link" mat-flat-button routerLink="/units/list" routerLinkActive="active-link">
+        <mat-icon aria-hidden="false" class="navigation__icon" aria-label="Example home icon">view_in_ar</mat-icon>
+        <span class="navigation__desc">Units</span>
+      </a>
+    </li>
+  </ul>
+  <button class="navigation__link" mat-flat-button (click)="onLogout()">
+    <mat-icon aria-hidden="false" class="navigation__icon" aria-label="Example home icon">logout</mat-icon>
+    <span class="navigation__desc">Logout</span>
+  </button>
+</nav>

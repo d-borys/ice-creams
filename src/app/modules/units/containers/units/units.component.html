@@ -1,0 +1,13 @@
+<div class="wrapper__content">
+  <h1 class="units__header">
+    List of all units
+  </h1>
+  <div class="content">
+    <app-ic-custom-table [dataProvider]="units$ | async" [columnsDef]="columns"></app-ic-custom-table>
+  </div>
+  <div class="button__bar">
+    <div class="button__bar-center">
+      <button mat-raised-button (click)="onShowAddForm()" color="primary">Create unit</button>
+    </div>
+  </div>
+</div>

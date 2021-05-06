@@ -1,0 +1,43 @@
+@import "abstracts/mixins";
+@import "abstracts/variables";
+
+.table {
+  width: 100%;
+
+  th, td {
+    text-align: center;
+  }
+
+  &__wrapper {
+    width: 100%;
+    position: relative;
+  }
+
+  @include respond-to('small') {
+    td, th {
+      font-size: 1.2rem;
+    }
+
+    td.mat-cell:first-of-type {
+      padding-left: 1rem;
+    }
+  }
+}
+
+.table__empty {
+  @include centerAbs;
+  font-size: 3rem;
+  color: $gray;
+  opacity: .8;
+  top: 30%;
+}
+
+.select-td {
+  width: 6rem;
+
+  @include respond-to('small') {
+    td, th {
+      font-size: 1.2rem;
+    }
+  }
+}

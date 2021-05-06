@@ -1,0 +1,14 @@
+.icecream__select {
+  width: 100%;
+}
+
+.favorite__form {
+  min-height: 20rem;
+  min-width: 40rem;
+  display: flex;
+  flex-direction: column;
+
+  &__content {
+    flex: 1;
+  }
+}

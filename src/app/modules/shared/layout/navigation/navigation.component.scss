@@ -1,0 +1,73 @@
+@import "abstracts/variables";
+@import "abstracts/mixins";
+
+.navigation {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  width: 30rem;
+  @include respond-to('medium') {
+    width: auto;
+  }
+
+  &__header {
+    display: flex;
+    padding: 1rem;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 100%;
+
+  }
+
+  &__title {
+    font-size: 2rem;
+    @include respond-to('medium') {
+      display: none;
+    }
+  }
+
+  &__logo {
+    width: 3rem;
+    transform: rotate(30deg);
+  }
+
+  &__list {
+    list-style: none;
+  }
+
+  &__el {
+    width: 100%;
+    display: flex;
+    align-items: center;
+  }
+
+  &__icon {
+    margin-right: 2rem;
+    @include respond-to('medium') {
+      margin-right: 0;
+    }
+  }
+
+  &__link {
+    width: 100%;
+    padding: 1rem 0;
+
+    &:hover {
+
+    }
+  }
+
+  &__desc {
+    @include respond-to('medium') {
+      display: none;
+    }
+  }
+}
+
+mat-divider {
+  width: 100%;
+}
+
+.active-link {
+  color: $primary-color;
+}

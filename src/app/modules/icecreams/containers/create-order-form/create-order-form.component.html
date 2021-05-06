@@ -1,0 +1,36 @@
+<div class="order__new" *ngLet="(unit$ | async) as unit">
+  <h1>{{isDuplicateMode ? 'Duplicate order' : 'Create new order'}}</h1>
+  <div class="content">
+    <mat-form-field class="from__field" *ngIf="isProducer">
+      <mat-label>Customer</mat-label>
+      <mat-select [(ngModel)]="selectedCustomer" [compareWith]="compareCustomerValuesFunction"
+                  [disabled]="isDuplicateMode">
+        <mat-option *ngFor="let customer of (customers$ | async)"
+                    [value]="customer">{{customer.name}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field class="from__field">
+      <mat-label>Ice cream</mat-label>
+      <mat-select [(ngModel)]="selectedIceCream" [compareWith]="compareValuesFunction"
+                  [disabled]="isDuplicateMode">
+        <mat-option *ngFor="let iceCream of (availableIceCreams$ | async)"
+                    [value]="iceCream">{{iceCream.name}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <div class="flex flex-align-center">
+      <mat-form-field class="from__field">
+        <mat-label>Amount</mat-label>
+        <input type="text" matInput [required]="true" [(ngModel)]="amount">
+        <mat-error matErrorMessages></mat-error>
+      </mat-form-field>
+      <app-unit-bar [unit]="unit" *ngIf="!!unit"></app-unit-bar>
+    </div>
+  </div>
+  <div class="button__bar">
+    <div class="button__bar-center">
+      <button type="button" mat-raised-button (click)="onCloseModal()">Close</button>
+      <button type="button" mat-raised-button color="primary" (click)="onOrder(amount, unit)">Order</button>
+    </div>
+  </div>
+</div>
+

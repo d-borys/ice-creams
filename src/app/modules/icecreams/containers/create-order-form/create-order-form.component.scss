@@ -1,0 +1,11 @@
+.order {
+  &__content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__unit {
+    margin-left: 1rem;
+  }
+}

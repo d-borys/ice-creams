@@ -1,0 +1,17 @@
+<div class="favorite__form">
+  <div class="favorite__form__content">
+    <h1>Select favorite ice creams</h1>
+    <mat-form-field appearance="fill" class="icecream__select">
+      <mat-label>Ice creams</mat-label>
+      <mat-select multiple [(ngModel)]="selectedIceCreams" [compareWith]="compareIceCream">
+        <mat-option *ngFor="let iceCream of iceCreams$ | async" [value]="iceCream">{{iceCream.name}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+  <div class="button__bar">
+    <div class="button__bar-center">
+      <button type="button" mat-raised-button (click)="onClose()">Close</button>
+      <button type="button" mat-raised-button color="primary" (click)="onSelect(selectedIceCreams)">Select</button>
+    </div>
+  </div>
+</div>

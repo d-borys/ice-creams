@@ -1,0 +1,26 @@
+@import "abstracts/mixins";
+@import "abstracts/variables";
+
+.login {
+  @include centerAbs;
+  width: 80%;
+  max-width: 60rem;
+  height: 50%;
+  background-color: $white;
+  box-shadow: $box-shadow;
+  border-radius: 5px;
+  justify-content: center;
+  align-items: center;
+  padding: 5%;
+
+  &__header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    &__logo {
+      width: 20%;
+    }
+  }
+}
